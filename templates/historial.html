@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de Adopciones</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; padding: 40px; }
+        .table-container { max-width: 900px; margin: 0 auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.05); }
+        h1 { color: #2c3e50; border-left: 5px solid #2ecc71; padding-left: 15px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th { background: #f8f9fa; color: #7f8c8d; text-transform: uppercase; font-size: 0.85em; padding: 15px; text-align: left; border-bottom: 2px solid #eee; }
+        td { padding: 15px; border-bottom: 1px solid #eee; color: #34495e; }
+        tr:hover { background: #f1f1f1; }
+        .date { color: #95a5a6; font-size: 0.9em; }
+        .back-link { display: block; margin-top: 20px; text-align: center; color: #3498db; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="table-container">
+        <h1>📋 Registro de Adopciones</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Adoptante</th>
+                    <th>Perrito</th>
+                    <th>Fecha de Proceso</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in adoptions %}
+                <tr>
+                    <td><strong>{{ row[1] }} {{ row[2] }}</strong></td>
+                    <td>{{ row[3] }}</td>
+                    <td class="date">{{ row[4] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/" class="back-link">← Volver al Catálogo</a>
+    </div>
+</body>
+</html>

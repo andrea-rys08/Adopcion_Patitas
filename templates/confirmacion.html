@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmar Adopción | Centro Huellitas</title>
+    <style>
+        :root { --primary: #3498db; --secondary: #2c3e50; --success: #2ecc71; --light: #f4f7f6; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--light); margin: 0; padding: 20px; color: var(--secondary); display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .confirm-card { background: white; border-radius: 15px; padding: 30px; max-width: 500px; width: 100%; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .header { text-align: center; margin-bottom: 25px; border-bottom: 2px solid #eee; padding-bottom: 15px; }
+        h1 { color: var(--secondary); font-size: 1.5em; margin-bottom: 5px; }
+        .dog-details { color: var(--primary); font-weight: bold; }
+        h3 { margin-top: 20px; color: var(--secondary); font-size: 1.1em; }
+        
+        form div { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; color: #555; }
+        input[type="text"] { width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 1em; box-sizing: border-box; transition: border-color 0.3s; }
+        input[type="text"]:focus { border-color: var(--primary); outline: none; }
+        
+        .btn-submit { display: block; width: 100%; margin-top: 25px; padding: 15px; background: var(--success); color: white; border: none; border-radius: 25px; font-size: 1.1em; font-weight: bold; cursor: pointer; transition: background 0.3s; text-align: center; }
+        .btn-submit:hover { background: #27ae60; }
+        
+        .back-link { display: block; text-align: center; margin-top: 15px; color: #7f8c8d; text-decoration: none; font-size: 0.9em; }
+        .back-link:hover { color: var(--primary); }
+    </style>
+</head>
+<body>
+    <div class="confirm-card">
+        <div class="header">
+            <h1>🐾 Paso Final de Adopción</h1>
+            <p class="dog-details">Estás por adoptar a {{ dog.name }}, un {{ dog.breed }} de {{ dog.age }} años.</p>
+        </div>
+        
+        <h3>Por favor, ingresa tus datos (Adoptante):</h3>
+        
+        <form action="/confirmar_adopcion" method="POST">
+            <input type="hidden" name="dog_id" value="{{ dog.id }}">
+            
+            <div>
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" placeholder="Ej: Andrea Reyes" required>
+            </div>
+            
+            <div>
+                <label for="lastname">Apellido:</label>
+                <input type="text" id="lastname" name="lastname" placeholder="Ej: Hernández" required>
+            </div>
+            
+            <div>
+                <label for="id_card">Cédula/ID:</label>
+                <input type="text" id="id_card" name="id_card" placeholder="Ej: 001-XXXXXX-XXXX" required>
+            </div>
+            
+            <div>
+                <label for="address">Dirección de Domicilio:</label>
+                <input type="text" id="address" name="address" placeholder="Ej: Calle Principal #123, El Salvador" required>
+            </div>
+            
+            <button type="submit" class="btn-submit">✅ Confirmar Adopción</button>
+        </form>
+        <a href="/" class="back-link">← Cancelar y Volver</a>
+    </div>
+</body>
+</html>

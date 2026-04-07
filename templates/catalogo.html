@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro de Adopción | Catálogo</title>
+    <style>
+        :root { --primary: #2ecc71; --dark: #2c3e50; --light: #ecf0f1; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--light); margin: 0; padding: 20px; color: var(--dark); }
+        h1 { text-align: center; color: var(--dark); margin-bottom: 30px; }
+        .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+        .dog-card { background: white; border-radius: 15px; padding: 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s; }
+        .dog-card:hover { transform: translateY(-5px); }
+        .dog-card h2 { margin: 10px 0; color: var(--primary); }
+        .badge { background: #e8f5e9; color: #2e7d32; padding: 5px 10px; border-radius: 20px; font-size: 0.8em; font-weight: bold; }
+        .btn { display: inline-block; margin-top: 15px; padding: 10px 20px; background: var(--primary); color: white; text-decoration: none; border-radius: 25px; font-weight: bold; transition: background 0.3s; }
+        .btn:hover { background: #27ae60; }
+        nav { text-align: center; margin-bottom: 20px; }
+        nav a { margin: 0 10px; color: var(--dark); text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <nav><a href="/">Inicio</a> | <a href="/historial">Ver Historial</a></nav>
+    <h1>🐾 Patitas de Amor</h1>
+    <div class="container">
+        {% for dog in dogs %}
+        <div class="dog-card">
+            <span class="badge">{{ dog.breed }}</span>
+            <h2>{{ dog.name }}</h2>
+            <p><strong>Edad:</strong> {{ dog.age }} años</p>
+            <a href="/adoptar/{{ dog.id }}" class="btn">¡Adoptarme ahora!</a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
