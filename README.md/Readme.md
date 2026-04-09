@@ -25,3 +25,6 @@ Durante la fase de construcción, se utilizó Inteligencia Artificial para resol
 1.  **Entorno Virtual:** Activar el entorno con `source venv/bin/activate`.
 2.  **Base de Datos:** Importar el script SQL adjunto en MariaDB.
 3.  **Ejecución:** Iniciar el servidor con `python main.py`.
+<img width="1365" height="765" alt="GitHub_Readme" src="https://github.com/user-attachments/assets/8cd7ec22-666f-42ee-acd3-13b4b39edd40" />
+<img width="1366" height="524" alt="GitHUbReadme" src="https://github.com/user-attachments/assets/c489dc8d-a591-4d97-977a-163518666532" />
+
